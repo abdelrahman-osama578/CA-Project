@@ -145,9 +145,9 @@ int main(int argc, char *argv[]) {
         // Increment the clock cycle [cite: 689]
         cpu.clock_cycle++;
 
-        // Safety net: stop after 25 cycles so we don't accidentally infinite loop while testing
-        if (cpu.clock_cycle > 25) {
-            printf("\n--- Reached 25 cycle limit (Safety Net) ---\n");
+        // Safety net: stop after 100 cycles
+        if (cpu.clock_cycle > 100) {
+            printf("\n--- Reached 100 cycle limit (Safety Net) ---\n");
             break;
         }
     }

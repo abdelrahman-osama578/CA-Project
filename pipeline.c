@@ -66,8 +66,7 @@ void execute() {
     ex_mem.is_valid = true;
     ex_mem.opcode = id_ex.opcode;
     
-    if (id_ex.opcode == OPCODE_ADD || id_ex.opcode == OPCODE_SUB || 
-        id_ex.opcode == OPCODE_SLL || id_ex.opcode == OPCODE_SRL) {
+    if (id_ex.opcode == OPCODE_ADD || id_ex.opcode == OPCODE_SUB) {
         ex_mem.dest_reg = id_ex.r3_addr;
     } else {
         ex_mem.dest_reg = id_ex.r1_addr;
