@@ -1,13 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "cpu.h"
 #include "parser.h"
-
-// Helper function to extract the integer value from a string like "R15"
-int parse_register(const char* reg_str) {
-    if (reg_str == NULL || reg_str[0] != 'R') return 0;
-    return atoi(&reg_str[1]); // Convert the number part to an integer
-}
 
 void load_program(const char *filename) {
     FILE *file = fopen(filename, "r");
@@ -17,62 +12,83 @@ void load_program(const char *filename) {
     }
 
     char line[256];
-    uint32_t current_address = 0;
+    int inst_index = 0;
 
-    // Read the file line by line
     while (fgets(line, sizeof(line), file)) {
-        if (current_address >= INSTRUCTION_LIMIT) {
-            printf("Error: Instruction memory overflow!\n");
-            break;
-        }
+        // Remove newline characters
+        line[strcspn(line, "\r\n")] = 0;
 
-        // Ignore empty lines
-        if (strlen(line) <= 1) continue;
+        // Skip empty lines
+        if (strlen(line) == 0) continue;
 
-        char mnemonic[10];
-        char op1[20] = "", op2[20] = "", op3[20] = "";
-        
-        // Parse the line (assuming space-separated values like "ADD R1 R2 R3")
-        int tokens = sscanf(line, "%s %s %s %s", mnemonic, op1, op2, op3);
-        if (tokens < 1) continue;
-
+        char opcode_str[10];
+        int r1 = 0, r2 = 0, r3 = 0, imm = 0, shamt = 0, address = 0;
         uint32_t instruction = 0;
-        uint32_t opcode = 0, r1 = 0, r2 = 0, r3 = 0, shamt = 0;
-        int32_t imm = 0;
-        uint32_t address = 0;
 
-        // 1. Identify Opcode and Format [cite: 54, 61]
-        if (strcmp(mnemonic, "ADD") == 0) {
-            opcode = OPCODE_ADD;
-            r1 = parse_register(op1);
-            r2 = parse_register(op2);
-            r3 = parse_register(op3);
-            // R-Format: Shift values into their respective bit positions
-            instruction = (opcode << 28) | (r1 << 23) | (r2 << 18) | (r3 << 13) | (shamt & 0x1FFF);
+        // Read the mnemonic first to determine the format
+        sscanf(line, "%s", opcode_str);
+
+        // Parse the operands based on the instruction format
+        if (strcmp(opcode_str, "ADD") == 0 || strcmp(opcode_str, "SUB") == 0) {
+            sscanf(line, "%*s R%d R%d R%d", &r1, &r2, &r3);
         } 
-        else if (strcmp(mnemonic, "ADDI") == 0) {
-            opcode = OPCODE_ADDI;
-            r1 = parse_register(op1);
-            r2 = parse_register(op2);
-            imm = atoi(op3); // Immediate value
-            // I-Format: Mask immediate to 18 bits to handle negatives correctly
-            instruction = (opcode << 28) | (r1 << 23) | (r2 << 18) | (imm & 0x3FFFF);
+        else if (strcmp(opcode_str, "ADDI") == 0 || strcmp(opcode_str, "MULI") == 0 ||
+                 strcmp(opcode_str, "ANDI") == 0 || strcmp(opcode_str, "XORI") == 0 ||
+                 strcmp(opcode_str, "BNE") == 0 || strcmp(opcode_str, "LW") == 0 ||
+                 strcmp(opcode_str, "SW") == 0) {
+            sscanf(line, "%*s R%d R%d %d", &r1, &r2, &imm);
+        } 
+        else if (strcmp(opcode_str, "SLL") == 0 || strcmp(opcode_str, "SRL") == 0) {
+            sscanf(line, "%*s R%d R%d %d", &r1, &r2, &shamt);
+        } 
+        else if (strcmp(opcode_str, "J") == 0) {
+            sscanf(line, "%*s %d", &address);
         }
-        else if (strcmp(mnemonic, "J") == 0) {
-            opcode = OPCODE_J;
-            address = atoi(op1);
-            // J-Format: 28-bit address
-            instruction = (opcode << 28) | (address & 0xFFFFFFF);
-        }
-        // ... (You will need to add the remaining else-if blocks for SUB, MULI, BNE, ANDI, XORI, SLL, SRL, LW, SW) ...
-        
-        // Special case to remember: SLL and SRL have R3 = 0 in the instruction format [cite: 62]
 
-        // Store the 32-bit concatenated instruction into main memory [cite: 30]
-        cpu.memory[current_address] = instruction;
-        current_address++;
+        // ---------------------------------------------------------
+        // PACK INTO 32-BIT BINARY FORMAT
+        // ---------------------------------------------------------
+        if (strcmp(opcode_str, "ADD") == 0) {
+            instruction = (OPCODE_ADD << 28) | (r1 << 23) | (r2 << 18) | (r3 << 13);
+        } 
+        else if (strcmp(opcode_str, "SUB") == 0) {
+            instruction = (OPCODE_SUB << 28) | (r1 << 23) | (r2 << 18) | (r3 << 13);
+        } 
+        else if (strcmp(opcode_str, "ADDI") == 0) {
+            instruction = (OPCODE_ADDI << 28) | (r1 << 23) | (r2 << 18) | (imm & 0x3FFFF);
+        } 
+        else if (strcmp(opcode_str, "MULI") == 0) {
+            instruction = (OPCODE_MULI << 28) | (r1 << 23) | (r2 << 18) | (imm & 0x3FFFF);
+        } 
+        else if (strcmp(opcode_str, "ANDI") == 0) {
+            instruction = (OPCODE_ANDI << 28) | (r1 << 23) | (r2 << 18) | (imm & 0x3FFFF);
+        } 
+        else if (strcmp(opcode_str, "XORI") == 0) {
+            instruction = (OPCODE_XORI << 28) | (r1 << 23) | (r2 << 18) | (imm & 0x3FFFF);
+        } 
+        else if (strcmp(opcode_str, "BNE") == 0) {
+            instruction = (OPCODE_BNE << 28) | (r1 << 23) | (r2 << 18) | (imm & 0x3FFFF);
+        } 
+        else if (strcmp(opcode_str, "LW") == 0) {
+            instruction = (OPCODE_LW << 28) | (r1 << 23) | (r2 << 18) | (imm & 0x3FFFF);
+        } 
+        else if (strcmp(opcode_str, "SW") == 0) {
+            instruction = (OPCODE_SW << 28) | (r1 << 23) | (r2 << 18) | (imm & 0x3FFFF);
+        } 
+        else if (strcmp(opcode_str, "SLL") == 0) {
+            instruction = (OPCODE_SLL << 28) | (r1 << 23) | (r2 << 18) | (r3 << 13) | (shamt & 0x1FFF);
+        } 
+        else if (strcmp(opcode_str, "SRL") == 0) {
+            instruction = (OPCODE_SRL << 28) | (r1 << 23) | (r2 << 18) | (r3 << 13) | (shamt & 0x1FFF);
+        } 
+        else if (strcmp(opcode_str, "J") == 0) {
+            instruction = (OPCODE_J << 28) | (address & 0xFFFFFFF);
+        }
+
+        // Store the instruction in memory
+        cpu.memory[inst_index] = instruction;
+        inst_index++;
     }
 
     fclose(file);
-    printf("Program loaded successfully. Total instructions: %d\n", current_address);
 }

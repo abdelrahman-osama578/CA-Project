@@ -75,28 +75,57 @@ void execute() {
 
     ex_mem.r1_val = id_ex.r1_val; 
 
+    // Perform ALU Operation based on Opcode
     switch (id_ex.opcode) {
         case OPCODE_ADD:
             ex_mem.alu_result = id_ex.r1_val + id_ex.r2_val;
             break;
+        case OPCODE_SUB:
+            ex_mem.alu_result = id_ex.r1_val - id_ex.r2_val;
+            break;
+        case OPCODE_MULI:
+            ex_mem.alu_result = id_ex.r2_val * id_ex.immediate;
+            break;
         case OPCODE_ADDI:
             ex_mem.alu_result = id_ex.r2_val + id_ex.immediate;
             break;
+        case OPCODE_ANDI:
+            ex_mem.alu_result = id_ex.r2_val & id_ex.immediate;
+            break;
+        case OPCODE_XORI:
+            ex_mem.alu_result = id_ex.r2_val ^ id_ex.immediate;
+            break;
+        case OPCODE_SLL:
+            // Shift Left Logical
+            ex_mem.alu_result = id_ex.r2_val << id_ex.shamt;
+            break;
+        case OPCODE_SRL:
+            // Shift Right Logical (Assuming unsigned shift. If signed in C, might need cast to uint32_t)
+            ex_mem.alu_result = (int32_t)((uint32_t)id_ex.r2_val >> id_ex.shamt);
+            break;
         case OPCODE_LW:
         case OPCODE_SW:
+            // Calculate memory address: R2 + IMM
             ex_mem.alu_result = id_ex.r2_val + id_ex.immediate;
             break;
         case OPCODE_BNE:
+            // Branch if Not Equal
             if (id_ex.r1_val != id_ex.r2_val) {
+                // Update PC and flush the pipeline [cite: 484-485]
                 cpu.pc = id_ex.pc + 1 + id_ex.immediate; 
                 flush_pipeline();
             }
             break;
         case OPCODE_J:
+            // Unconditional Jump
+            // Jump Address = PC[31:28] || ADDRESS
             cpu.pc = (id_ex.pc & 0xF0000000) | id_ex.address;
             flush_pipeline();
             break;
-        // (Add SUB, MULI, ANDI, XORI, SLL, SRL logic here)
+        default:
+            // Unrecognized opcode (or bubble)
+            ex_mem.alu_result = 0;
+            break;
     }
 
     // The instruction has moved to the EX_MEM latch. Clear this latch!
