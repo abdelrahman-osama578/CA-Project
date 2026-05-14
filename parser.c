@@ -15,6 +15,10 @@ void load_program(const char *filename) {
     int inst_index = 0;
 
     while (fgets(line, sizeof(line), file)) {
+        if (inst_index >= INSTRUCTION_LIMIT) {
+            printf("Warning: Reached maximum instruction limit of %d. Stopping parse.\n", INSTRUCTION_LIMIT);
+            break;
+        }
         // Remove newline characters
         line[strcspn(line, "\r\n")] = 0;
 
@@ -76,10 +80,10 @@ void load_program(const char *filename) {
             instruction = (OPCODE_SW << 28) | (r1 << 23) | (r2 << 18) | (imm & 0x3FFFF);
         } 
         else if (strcmp(opcode_str, "SLL") == 0) {
-            instruction = (OPCODE_SLL << 28) | (r1 << 23) | (r2 << 18) | (r3 << 13) | (shamt & 0x1FFF);
+            instruction = (OPCODE_SLL << 28) | (r1 << 23) | (r2 << 18) | (0 << 13) | (shamt & 0x1FFF);
         } 
         else if (strcmp(opcode_str, "SRL") == 0) {
-            instruction = (OPCODE_SRL << 28) | (r1 << 23) | (r2 << 18) | (r3 << 13) | (shamt & 0x1FFF);
+            instruction = (OPCODE_SRL << 28) | (r1 << 23) | (r2 << 18) | (0 << 13) | (shamt & 0x1FFF);
         } 
         else if (strcmp(opcode_str, "J") == 0) {
             instruction = (OPCODE_J << 28) | (address & 0xFFFFFFF);

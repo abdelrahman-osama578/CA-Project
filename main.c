@@ -10,6 +10,8 @@ IF_ID_Latch if_id;
 ID_EX_Latch id_ex;
 EX_MEM_Latch ex_mem;
 MEM_WB_Latch mem_wb;
+// GLOBAL FLAG to prevent IF and MEM from running in the same cycle
+bool mem_active_this_cycle = false;
 
 void initialize_cpu() {
     memset(&cpu, 0, sizeof(CPU));
@@ -65,6 +67,9 @@ int main(int argc, char *argv[]) {
         printf("\n===================================================\n");
         printf("Clock Cycle: %d\n", cpu.clock_cycle);
         printf("===================================================\n");
+
+        // RESET THE FLAG AT THE START OF EVERY CYCLE
+        mem_active_this_cycle = false;
 
         // Execute stages in reverse order to simulate latches
         writeback();

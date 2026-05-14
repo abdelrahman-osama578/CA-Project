@@ -68,6 +68,13 @@ void memory() {
         printf("Output: Passed ALU result %d forward\n", ex_mem.alu_result);
     }
 
+    // --- NEW: SET THE GLOBAL FLAG IF MEMORY OR BRANCH IS ACTIVE ---
+    extern bool mem_active_this_cycle;
+    if (ex_mem.opcode == OPCODE_LW || ex_mem.opcode == OPCODE_SW || 
+        ex_mem.opcode == OPCODE_BNE || ex_mem.opcode == OPCODE_J) {
+        mem_active_this_cycle = true;
+    }
+
     ex_mem.is_valid = false;
 }
 
@@ -216,17 +223,22 @@ void decode() {
 void fetch() {
     printf("[Fetch]   ");
     
-    // New Package 1 Rule: Only fetch on ODD clock cycles
-    if (cpu.clock_cycle % 2 == 0) {
-        printf("Idle (Even Clock Cycle)\n");
-        return;
-    }
-
-    if (ex_mem.is_valid && (ex_mem.opcode == OPCODE_LW || ex_mem.opcode == OPCODE_SW)) {
-        printf("Stalled (Memory structural hazard)\n");
+    // 1. Check the newly implemented Structural Hazard Flag
+    extern bool mem_active_this_cycle;
+    if (mem_active_this_cycle) {
+        printf("Stalled (Memory structural hazard block)\n");
         return; 
     }
 
+    // 2. Enforce the 2-cycle rhythm dynamically (Survives branches/flushes)
+    static int fetch_wait = 0;
+    if (fetch_wait == 1) {
+        fetch_wait = 0; // Reset for the next cycle
+        printf("Idle (Enforcing 2-cycle rhythm)\n");
+        return;
+    }
+
+    // 3. Normal Fetch Execution
     if (!if_id.is_valid && cpu.pc < INSTRUCTION_LIMIT && cpu.memory[cpu.pc] != 0) {
         if_id.is_valid = true;
         if_id.instruction = cpu.memory[cpu.pc];
@@ -235,6 +247,7 @@ void fetch() {
         
         printf("Input: PC %d | Output: Fetched Instruction 0x%08X\n", cpu.pc, if_id.instruction);
         cpu.pc++;
+        fetch_wait = 1; // Trigger the wait for the next cycle
     } else {
         printf("Empty (No valid instruction or buffer full)\n");
     }
