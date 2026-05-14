@@ -40,6 +40,7 @@ typedef struct {
     bool is_valid;       // Tells us if there is an active instruction here
     int32_t instruction; // The raw 32-bit instruction fetched
     uint32_t pc;         // The PC of this specific instruction (useful for BNE/J) [cite: 524]
+    int decode_cycle_count;
 } IF_ID_Latch;
 
 typedef struct {
