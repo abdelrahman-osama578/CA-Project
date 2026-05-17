@@ -34,8 +34,11 @@ void load_program(const char *filename) {
 
         // Parse the operands based on the instruction format
         if (strcmp(opcode_str, "ADD") == 0 || strcmp(opcode_str, "SUB") == 0) {
-            sscanf(line, "%*s R%d R%d R%d", &r1, &r2, &r3);
-        } 
+            // Re-route the sscanf mapping so Dest goes to r3, Src1 to r1, Src2 to r2
+            sscanf(line, "%*s R%d R%d R%d", &r3, &r1, &r2); 
+            uint8_t op = (strcmp(opcode_str, "ADD") == 0) ? OPCODE_ADD : OPCODE_SUB;
+            instruction = (op << 28) | (r1 << 23) | (r2 << 18) | (r3 << 13);
+        }
         else if (strcmp(opcode_str, "ADDI") == 0 || strcmp(opcode_str, "MULI") == 0 ||
                  strcmp(opcode_str, "ANDI") == 0 || strcmp(opcode_str, "XORI") == 0 ||
                  strcmp(opcode_str, "BNE") == 0 || strcmp(opcode_str, "LW") == 0 ||

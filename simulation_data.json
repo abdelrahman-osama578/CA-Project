@@ -1,0 +1,4520 @@
+{
+  "1.1 Pure Arithmetic": {
+    "program": ["ADDI R1 R0 5", "ADDI R2 R0 10", "ADD R0 R0 R0", "ADD R0 R0 R0", "ADD R3 R1 R2"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800005"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800005"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x3100000A"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x3100000A"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x3100000A"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": true, "alu_result": 5, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 10},
+        "EX": {"active": false, "alu_result": 5, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 5},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 10},
+        "EX": {"active": false, "alu_result": 5, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 5},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 10},
+        "EX": {"active": true, "alu_result": 10, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 5},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 10, "dest_reg": 2},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 10},
+        "WB": {"active": true, "dest_reg": 2}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 10, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 10},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 5, 10, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 10},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 5, 10, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 12,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x00886000"},
+        "ID": {"active": true, "pc": 3, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 5, 10, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 13,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x00886000"},
+        "ID": {"active": true, "pc": 3, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 5, 10, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 14,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x00886000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 5, 10, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 15,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 4, "opcode": 0, "r1_val": 5, "r2_val": 10, "imm": 24576},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 5, 10, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 16,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 4, "opcode": 0, "r1_val": 5, "r2_val": 10, "imm": 24576},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 5, 10, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 17,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 5, "r2_val": 10, "imm": 24576},
+        "EX": {"active": true, "alu_result": 15, "dest_reg": 3},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 5, 10, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 18,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 5, "r2_val": 10, "imm": 24576},
+        "EX": {"active": false, "alu_result": 15, "dest_reg": 3},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 15},
+        "WB": {"active": true, "dest_reg": 3}
+      },
+      "registers": [0, 5, 10, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 19,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 5, "r2_val": 10, "imm": 24576},
+        "EX": {"active": false, "alu_result": 15, "dest_reg": 3},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 15},
+        "WB": {"active": false, "dest_reg": 3}
+      },
+      "registers": [0, 5, 10, 15, 0, 0, 0, 0]
+    }
+    ]
+  },
+  "1.2 Standard Memory Access": {
+    "program": ["ADDI R1 R0 1024", "ADDI R2 R0 99", "ADD R0 R0 R0", "ADD R0 R0 R0", "SW R2 R1 0", "ADD R0 R0 R0", "ADD R0 R0 R0", "LW R3 R1 0"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800400"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800400"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x31000063"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1024},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x31000063"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1024},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x31000063"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1024},
+        "EX": {"active": true, "alu_result": 1024, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 99},
+        "EX": {"active": false, "alu_result": 1024, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1024},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 99},
+        "EX": {"active": false, "alu_result": 1024, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1024},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1024, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 99},
+        "EX": {"active": true, "alu_result": 99, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1024},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1024, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 99, "dest_reg": 2},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 99},
+        "WB": {"active": true, "dest_reg": 2}
+      },
+      "registers": [0, 1024, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 99, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 99},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 99},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 12,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0xB1040000"},
+        "ID": {"active": true, "pc": 3, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 13,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0xB1040000"},
+        "ID": {"active": true, "pc": 3, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 14,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0xB1040000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 15,
+      "stages": {
+        "IF": {"active": true, "pc": 5, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 4, "opcode": 11, "r1_val": 99, "r2_val": 1024, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 16,
+      "stages": {
+        "IF": {"active": true, "pc": 5, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 4, "opcode": 11, "r1_val": 99, "r2_val": 1024, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 17,
+      "stages": {
+        "IF": {"active": true, "pc": 5, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 11, "r1_val": 99, "r2_val": 1024, "imm": 0},
+        "EX": {"active": true, "alu_result": 1024, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 18,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 5, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 1024, "dest_reg": 2},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1024},
+        "WB": {"active": true, "dest_reg": 2}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 19,
+      "stages": {
+        "IF": {"active": true, "pc": 6, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 5, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 1024, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1024},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 20,
+      "stages": {
+        "IF": {"active": true, "pc": 6, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1024},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 21,
+      "stages": {
+        "IF": {"active": true, "pc": 7, "inst": "0xA1840000"},
+        "ID": {"active": true, "pc": 6, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 22,
+      "stages": {
+        "IF": {"active": true, "pc": 7, "inst": "0xA1840000"},
+        "ID": {"active": true, "pc": 6, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 23,
+      "stages": {
+        "IF": {"active": true, "pc": 7, "inst": "0xA1840000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 24,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 7, "opcode": 10, "r1_val": 0, "r2_val": 1024, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 25,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 7, "opcode": 10, "r1_val": 0, "r2_val": 1024, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 26,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 10, "r1_val": 0, "r2_val": 1024, "imm": 0},
+        "EX": {"active": true, "alu_result": 1024, "dest_reg": 3},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 27,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 10, "r1_val": 0, "r2_val": 1024, "imm": 0},
+        "EX": {"active": false, "alu_result": 1024, "dest_reg": 3},
+        "MEM": {"active": true, "mem_read": 99, "alu_result": 1024},
+        "WB": {"active": true, "dest_reg": 3}
+      },
+      "registers": [0, 1024, 99, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 28,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 10, "r1_val": 0, "r2_val": 1024, "imm": 0},
+        "EX": {"active": false, "alu_result": 1024, "dest_reg": 3},
+        "MEM": {"active": false, "mem_read": 99, "alu_result": 1024},
+        "WB": {"active": false, "dest_reg": 3}
+      },
+      "registers": [0, 1024, 99, 99, 0, 0, 0, 0]
+    }
+    ]
+  },
+  "1.3 Untaken Branch": {
+    "program": ["BNE R0 R0 5", "ADDI R1 R0 10"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x40000005"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x40000005"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x3080000A"},
+        "ID": {"active": true, "pc": 0, "opcode": 4, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x3080000A"},
+        "ID": {"active": true, "pc": 0, "opcode": 4, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x3080000A"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 10},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 10},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 10},
+        "EX": {"active": true, "alu_result": 10, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 10},
+        "EX": {"active": false, "alu_result": 10, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 10},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 10},
+        "EX": {"active": false, "alu_result": 10, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 10},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 10, 0, 0, 0, 0, 0, 0]
+    }
+    ]
+  },
+  "1.4 Bitwise & Sign Extension": {
+    "program": ["ADDI R1 R0 15", "ADDI R2 R0 -5", "ADD R0 R0 R0", "ADD R0 R0 R0", "ANDI R3 R1 10", "XORI R4 R1 5"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x3080000F"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x3080000F"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x3103FFFB"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 15},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x3103FFFB"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 15},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x3103FFFB"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 15},
+        "EX": {"active": true, "alu_result": 15, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": -5},
+        "EX": {"active": false, "alu_result": 15, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 15},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": -5},
+        "EX": {"active": false, "alu_result": 15, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 15},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 15, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": -5},
+        "EX": {"active": true, "alu_result": -5, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 15},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 15, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": -5, "dest_reg": 2},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": -5},
+        "WB": {"active": true, "dest_reg": 2}
+      },
+      "registers": [0, 15, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": -5, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": -5},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 15, -5, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": -5},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 15, -5, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 12,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x5184000A"},
+        "ID": {"active": true, "pc": 3, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 15, -5, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 13,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x5184000A"},
+        "ID": {"active": true, "pc": 3, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 15, -5, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 14,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x5184000A"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 15, -5, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 15,
+      "stages": {
+        "IF": {"active": true, "pc": 5, "inst": "0x62040005"},
+        "ID": {"active": true, "pc": 4, "opcode": 5, "r1_val": 0, "r2_val": 15, "imm": 10},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 15, -5, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 16,
+      "stages": {
+        "IF": {"active": true, "pc": 5, "inst": "0x62040005"},
+        "ID": {"active": true, "pc": 4, "opcode": 5, "r1_val": 0, "r2_val": 15, "imm": 10},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 15, -5, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 17,
+      "stages": {
+        "IF": {"active": true, "pc": 5, "inst": "0x62040005"},
+        "ID": {"active": false, "pc": -1, "opcode": 5, "r1_val": 0, "r2_val": 15, "imm": 10},
+        "EX": {"active": true, "alu_result": 10, "dest_reg": 3},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 15, -5, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 18,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 5, "opcode": 6, "r1_val": 0, "r2_val": 15, "imm": 5},
+        "EX": {"active": false, "alu_result": 10, "dest_reg": 3},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 10},
+        "WB": {"active": true, "dest_reg": 3}
+      },
+      "registers": [0, 15, -5, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 19,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 5, "opcode": 6, "r1_val": 0, "r2_val": 15, "imm": 5},
+        "EX": {"active": false, "alu_result": 10, "dest_reg": 3},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 10},
+        "WB": {"active": false, "dest_reg": 3}
+      },
+      "registers": [0, 15, -5, 10, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 20,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 6, "r1_val": 0, "r2_val": 15, "imm": 5},
+        "EX": {"active": true, "alu_result": 10, "dest_reg": 4},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 10},
+        "WB": {"active": false, "dest_reg": 3}
+      },
+      "registers": [0, 15, -5, 10, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 21,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 6, "r1_val": 0, "r2_val": 15, "imm": 5},
+        "EX": {"active": false, "alu_result": 10, "dest_reg": 4},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 10},
+        "WB": {"active": true, "dest_reg": 4}
+      },
+      "registers": [0, 15, -5, 10, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 22,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 6, "r1_val": 0, "r2_val": 15, "imm": 5},
+        "EX": {"active": false, "alu_result": 10, "dest_reg": 4},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 10},
+        "WB": {"active": false, "dest_reg": 4}
+      },
+      "registers": [0, 15, -5, 10, 10, 0, 0, 0]
+    }
+    ]
+  },
+  "1.5 Shift Mechanics": {
+    "program": ["ADDI R1 R0 16", "ADD R0 R0 R0", "ADD R0 R0 R0", "SRL R2 R1 2", "SLL R3 R2 3"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800010"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800010"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 16},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 16},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 16},
+        "EX": {"active": true, "alu_result": 16, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 16, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 16},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 16, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 16},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 16, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 16},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 16, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x91040002"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 16, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x91040002"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 16, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x91040002"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 16, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 12,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x81880003"},
+        "ID": {"active": true, "pc": 3, "opcode": 9, "r1_val": 0, "r2_val": 16, "imm": 2},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 16, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 13,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x81880003"},
+        "ID": {"active": true, "pc": 3, "opcode": 9, "r1_val": 0, "r2_val": 16, "imm": 2},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 16, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 14,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x81880003"},
+        "ID": {"active": false, "pc": -1, "opcode": 9, "r1_val": 0, "r2_val": 16, "imm": 2},
+        "EX": {"active": true, "alu_result": 4, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 16, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 15,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 4, "opcode": 8, "r1_val": 0, "r2_val": 4, "imm": 3},
+        "EX": {"active": false, "alu_result": 4, "dest_reg": 2},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 4},
+        "WB": {"active": true, "dest_reg": 2}
+      },
+      "registers": [0, 16, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 16,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 4, "opcode": 8, "r1_val": 0, "r2_val": 4, "imm": 3},
+        "EX": {"active": false, "alu_result": 4, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 4},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 16, 4, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 17,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 8, "r1_val": 0, "r2_val": 4, "imm": 3},
+        "EX": {"active": true, "alu_result": 32, "dest_reg": 3},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 4},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 16, 4, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 18,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 8, "r1_val": 0, "r2_val": 4, "imm": 3},
+        "EX": {"active": false, "alu_result": 32, "dest_reg": 3},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 32},
+        "WB": {"active": true, "dest_reg": 3}
+      },
+      "registers": [0, 16, 4, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 19,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 8, "r1_val": 0, "r2_val": 4, "imm": 3},
+        "EX": {"active": false, "alu_result": 32, "dest_reg": 3},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 32},
+        "WB": {"active": false, "dest_reg": 3}
+      },
+      "registers": [0, 16, 4, 32, 0, 0, 0, 0]
+    }
+    ]
+  },
+  "1.6 Multiplication": {
+    "program": ["ADDI R1 R0 5", "ADD R0 R0 R0", "ADD R0 R0 R0", "MULI R2 R1 -3"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800005"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800005"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": true, "alu_result": 5, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 5, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 5},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 5, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 5},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 5},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x2107FFFD"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x2107FFFD"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x2107FFFD"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 12,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 3, "opcode": 2, "r1_val": 0, "r2_val": 5, "imm": -3},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 13,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 3, "opcode": 2, "r1_val": 0, "r2_val": 5, "imm": -3},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 14,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 2, "r1_val": 0, "r2_val": 5, "imm": -3},
+        "EX": {"active": true, "alu_result": -15, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 15,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 2, "r1_val": 0, "r2_val": 5, "imm": -3},
+        "EX": {"active": false, "alu_result": -15, "dest_reg": 2},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": -15},
+        "WB": {"active": true, "dest_reg": 2}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 16,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 2, "r1_val": 0, "r2_val": 5, "imm": -3},
+        "EX": {"active": false, "alu_result": -15, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": -15},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 5, -15, 0, 0, 0, 0, 0]
+    }
+    ]
+  },
+  "1.7 Unconditional Jump": {
+    "program": ["J 4", "ADDI R1 R0 99", "ADDI R2 R0 99", "ADDI R3 R0 99", "ADDI R4 R0 1"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x70000004"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x70000004"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x30800063"},
+        "ID": {"active": true, "pc": 0, "opcode": 7, "r1_val": 0, "r2_val": 0, "imm": 4},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x30800063"},
+        "ID": {"active": true, "pc": 0, "opcode": 7, "r1_val": 0, "r2_val": 0, "imm": 4},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x32000001"},
+        "ID": {"active": false, "pc": -1, "opcode": 7, "r1_val": 0, "r2_val": 0, "imm": 4},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x32000001"},
+        "ID": {"active": false, "pc": -1, "opcode": 7, "r1_val": 0, "r2_val": 0, "imm": 4},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 4, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 4, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 4},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 4},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 4}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 4},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 4}
+      },
+      "registers": [0, 0, 0, 0, 1, 0, 0, 0]
+    }
+    ]
+  },
+  "1.8 Taken BNE": {
+    "program": ["ADDI R1 R0 1", "ADD R0 R0 R0", "ADD R0 R0 R0", "BNE R1 R0 2", "ADDI R5 R0 99", "ADDI R6 R0 99", "ADDI R7 R0 1"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800001"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800001"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x40800002"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x40800002"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x40800002"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 12,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x32800063"},
+        "ID": {"active": true, "pc": 3, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": 2},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 13,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x32800063"},
+        "ID": {"active": true, "pc": 3, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": 2},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 14,
+      "stages": {
+        "IF": {"active": true, "pc": 6, "inst": "0x33800001"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": 2},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 15,
+      "stages": {
+        "IF": {"active": true, "pc": 6, "inst": "0x33800001"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": 2},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 16,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 6, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 17,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 6, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 18,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 7},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 19,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 7},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 7}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 20,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 7},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 7}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 1]
+    }
+    ]
+  },
+  "1.9 Strict Branch Flush": {
+    "program": ["ADDI R1 R0 1", "ADD R0 R0 R0", "ADD R0 R0 R0", "BNE R1 R0 2", "ADDI R5 R0 99", "ADDI R6 R0 99", "ADDI R7 R0 1"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800001"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800001"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x40800002"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x40800002"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x40800002"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 12,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x32800063"},
+        "ID": {"active": true, "pc": 3, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": 2},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 13,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0x32800063"},
+        "ID": {"active": true, "pc": 3, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": 2},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 14,
+      "stages": {
+        "IF": {"active": true, "pc": 6, "inst": "0x33800001"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": 2},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 15,
+      "stages": {
+        "IF": {"active": true, "pc": 6, "inst": "0x33800001"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": 2},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 16,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 6, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 17,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 6, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 18,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 7},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 19,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 7},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 7}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 20,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 7},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 7}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 1]
+    }
+    ]
+  },
+  "2.1 Immediate Extremes (Max Pos/Neg 18-bit)": {
+    "program": ["ADDI R1 R0 131071", "ADDI R2 R0 -131072"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x3081FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x3081FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x31020000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 131071},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x31020000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 131071},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x31020000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 131071},
+        "EX": {"active": true, "alu_result": 131071, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": -131072},
+        "EX": {"active": false, "alu_result": 131071, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 131071},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": -131072},
+        "EX": {"active": false, "alu_result": 131071, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 131071},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 131071, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": -131072},
+        "EX": {"active": true, "alu_result": -131072, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 131071},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 131071, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": -131072},
+        "EX": {"active": false, "alu_result": -131072, "dest_reg": 2},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": -131072},
+        "WB": {"active": true, "dest_reg": 2}
+      },
+      "registers": [0, 131071, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": -131072},
+        "EX": {"active": false, "alu_result": -131072, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": -131072},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 131071, -131072, 0, 0, 0, 0, 0]
+    }
+    ]
+  },
+  "2.2 Memory Upper Bound (Address 2047)": {
+    "program": ["ADDI R1 R0 2047", "ADDI R6 R0 99", "ADD R0 R0 R0", "ADD R0 R0 R0", "SW R6 R1 0"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x308007FF"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x308007FF"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x33000063"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 2047},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x33000063"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 2047},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x33000063"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 2047},
+        "EX": {"active": true, "alu_result": 2047, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 99},
+        "EX": {"active": false, "alu_result": 2047, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 2047},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 99},
+        "EX": {"active": false, "alu_result": 2047, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 2047},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 99},
+        "EX": {"active": true, "alu_result": 99, "dest_reg": 6},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 2047},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 99, "dest_reg": 6},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 99},
+        "WB": {"active": true, "dest_reg": 6}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 99, "dest_reg": 6},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 99},
+        "WB": {"active": false, "dest_reg": 6}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 99, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 99},
+        "WB": {"active": false, "dest_reg": 6}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 99, 0]
+    },
+    {
+      "cycle": 12,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0xB3040000"},
+        "ID": {"active": true, "pc": 3, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 99, 0]
+    },
+    {
+      "cycle": 13,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0xB3040000"},
+        "ID": {"active": true, "pc": 3, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 99, 0]
+    },
+    {
+      "cycle": 14,
+      "stages": {
+        "IF": {"active": true, "pc": 4, "inst": "0xB3040000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 99, 0]
+    },
+    {
+      "cycle": 15,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 4, "opcode": 11, "r1_val": 99, "r2_val": 2047, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 99, 0]
+    },
+    {
+      "cycle": 16,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 4, "opcode": 11, "r1_val": 99, "r2_val": 2047, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 99, 0]
+    },
+    {
+      "cycle": 17,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 11, "r1_val": 99, "r2_val": 2047, "imm": 0},
+        "EX": {"active": true, "alu_result": 2047, "dest_reg": 6},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 99, 0]
+    },
+    {
+      "cycle": 18,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 11, "r1_val": 99, "r2_val": 2047, "imm": 0},
+        "EX": {"active": false, "alu_result": 2047, "dest_reg": 6},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 2047},
+        "WB": {"active": true, "dest_reg": 6}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 99, 0]
+    },
+    {
+      "cycle": 19,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 11, "r1_val": 99, "r2_val": 2047, "imm": 0},
+        "EX": {"active": false, "alu_result": 2047, "dest_reg": 6},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 2047},
+        "WB": {"active": false, "dest_reg": 6}
+      },
+      "registers": [0, 2047, 0, 0, 0, 0, 99, 0]
+    }
+    ]
+  },
+  "2.3 Shift Cast Trap (Logical vs Arithmetic)": {
+    "program": ["ADDI R1 R0 -1", "ADD R0 R0 R0", "ADD R0 R0 R0", "SRL R2 R1 31"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x3083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x3083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": -1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": -1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": -1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": -1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": -1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, -1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": -1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, -1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x9104001F"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, -1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x9104001F"},
+        "ID": {"active": true, "pc": 2, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, -1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0x9104001F"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, -1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 12,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 3, "opcode": 9, "r1_val": 0, "r2_val": -1, "imm": 31},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, -1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 13,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 3, "opcode": 9, "r1_val": 0, "r2_val": -1, "imm": 31},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, -1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 14,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 9, "r1_val": 0, "r2_val": -1, "imm": 31},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, -1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 15,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 9, "r1_val": 0, "r2_val": -1, "imm": 31},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 2},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 2}
+      },
+      "registers": [0, -1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 16,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 9, "r1_val": 0, "r2_val": -1, "imm": 31},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, -1, 1, 0, 0, 0, 0, 0]
+    }
+    ]
+  },
+  "2.4 Von Neumann Bottleneck (Back-to-Back Memory)": {
+    "program": ["ADDI R9 R0 42", "SW R9 R0 1025", "LW R1 R0 1024", "LW R2 R0 1025"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x3480002A"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x3480002A"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0xB4800401"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 42},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0xB4800401"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 42},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0xB4800401"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 42},
+        "EX": {"active": true, "alu_result": 42, "dest_reg": 9},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0xA0800400"},
+        "ID": {"active": true, "pc": 1, "opcode": 11, "r1_val": 42, "r2_val": 0, "imm": 1025},
+        "EX": {"active": false, "alu_result": 42, "dest_reg": 9},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 42},
+        "WB": {"active": true, "dest_reg": 9}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0xA0800400"},
+        "ID": {"active": true, "pc": 1, "opcode": 11, "r1_val": 42, "r2_val": 0, "imm": 1025},
+        "EX": {"active": false, "alu_result": 42, "dest_reg": 9},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 42},
+        "WB": {"active": false, "dest_reg": 9}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": true, "pc": 2, "inst": "0xA0800400"},
+        "ID": {"active": false, "pc": -1, "opcode": 11, "r1_val": 42, "r2_val": 0, "imm": 1025},
+        "EX": {"active": true, "alu_result": 1025, "dest_reg": 9},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 42},
+        "WB": {"active": false, "dest_reg": 9}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 2, "opcode": 10, "r1_val": 0, "r2_val": 0, "imm": 1024},
+        "EX": {"active": false, "alu_result": 1025, "dest_reg": 9},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1025},
+        "WB": {"active": true, "dest_reg": 9}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0xA1000401"},
+        "ID": {"active": true, "pc": 2, "opcode": 10, "r1_val": 0, "r2_val": 0, "imm": 1024},
+        "EX": {"active": false, "alu_result": 1025, "dest_reg": 9},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1025},
+        "WB": {"active": false, "dest_reg": 9}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": true, "pc": 3, "inst": "0xA1000401"},
+        "ID": {"active": false, "pc": -1, "opcode": 10, "r1_val": 0, "r2_val": 0, "imm": 1024},
+        "EX": {"active": true, "alu_result": 1024, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1025},
+        "WB": {"active": false, "dest_reg": 9}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 12,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 3, "opcode": 10, "r1_val": 0, "r2_val": 0, "imm": 1025},
+        "EX": {"active": false, "alu_result": 1024, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1024},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 13,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 3, "opcode": 10, "r1_val": 0, "r2_val": 0, "imm": 1025},
+        "EX": {"active": false, "alu_result": 1024, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1024},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 14,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 10, "r1_val": 0, "r2_val": 0, "imm": 1025},
+        "EX": {"active": true, "alu_result": 1025, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1024},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 15,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 10, "r1_val": 0, "r2_val": 0, "imm": 1025},
+        "EX": {"active": false, "alu_result": 1025, "dest_reg": 2},
+        "MEM": {"active": true, "mem_read": 42, "alu_result": 1025},
+        "WB": {"active": true, "dest_reg": 2}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 16,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 10, "r1_val": 0, "r2_val": 0, "imm": 1025},
+        "EX": {"active": false, "alu_result": 1025, "dest_reg": 2},
+        "MEM": {"active": false, "mem_read": 42, "alu_result": 1025},
+        "WB": {"active": false, "dest_reg": 2}
+      },
+      "registers": [0, 0, 42, 0, 0, 0, 0, 0]
+    }
+    ]
+  },
+  "2.5 Zero-Offset Branch (Infinite Loop Check)": {
+    "program": ["ADDI R1 R0 1", "BNE R1 R0 -1"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800001"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800001"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 11,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 12,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 13,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 14,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 15,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 16,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 17,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 18,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 19,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 20,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 21,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 22,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 23,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 24,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 25,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 26,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 27,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 28,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 29,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 30,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 31,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 32,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 33,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 34,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 35,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 36,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 37,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 38,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 39,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 40,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 41,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 42,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 43,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 44,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 45,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 46,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 47,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 48,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 49,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 50,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 51,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 52,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 53,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 54,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 55,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 56,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 57,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 58,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 59,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 60,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 61,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 62,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 63,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 64,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 65,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 66,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 67,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 68,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 69,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 70,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 71,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 72,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 73,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 74,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 75,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 76,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 77,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 78,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 79,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 80,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 81,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 82,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 83,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 84,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 85,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 86,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 87,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 88,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 89,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 90,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 91,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 92,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 93,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 94,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 95,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 96,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 97,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 98,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 99,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 100,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 101,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 102,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 103,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 104,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 105,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 106,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 107,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 108,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 109,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 110,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 111,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 112,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 113,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 114,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 115,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 116,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 117,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 118,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 119,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 120,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 121,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 122,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 123,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 124,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 125,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 126,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 127,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 128,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 129,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 130,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 131,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 132,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 133,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 134,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 135,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 136,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 137,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 138,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 139,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 140,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 141,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 142,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 143,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 144,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 145,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 146,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 147,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 148,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": true, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 149,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x4083FFFF"},
+        "ID": {"active": false, "pc": -1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 150,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 4, "r1_val": 1, "r2_val": 0, "imm": -1},
+        "EX": {"active": false, "alu_result": 1, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 1},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 1, 0, 0, 0, 0, 0, 0]
+    }
+    ]
+  },
+  "3.1 Instruction Memory Out of Bounds": {
+    "program": ["J 1025"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x70000401"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x70000401"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 7, "r1_val": 0, "r2_val": 0, "imm": 1025},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 0, "opcode": 7, "r1_val": 0, "r2_val": 0, "imm": 1025},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 7, "r1_val": 0, "r2_val": 0, "imm": 1025},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 7, "r1_val": 0, "r2_val": 0, "imm": 1025},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 7, "r1_val": 0, "r2_val": 0, "imm": 1025},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    }
+    ]
+  },
+  "3.2 Data Write Out of Bounds (Protecting Inst Mem)": {
+    "program": ["ADDI R1 R0 5", "SW R1 R0 0"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800005"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x30800005"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0xB0800000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0xB0800000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0xB0800000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 5},
+        "EX": {"active": true, "alu_result": 5, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 11, "r1_val": 5, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 5, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 5},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 11, "r1_val": 5, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 5, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 5},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 11, "r1_val": 5, "r2_val": 0, "imm": 0},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 5},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 11, "r1_val": 5, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 1},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 1}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 11, "r1_val": 5, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 1},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 1}
+      },
+      "registers": [0, 5, 0, 0, 0, 0, 0, 0]
+    }
+    ]
+  },
+  "3.3 The R0 Integrity Trap": {
+    "program": ["ADDI R0 R0 500", "ADD R5 R0 R0"],
+    "cycles": [
+    {
+      "cycle": 1,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x300001F4"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 2,
+      "stages": {
+        "IF": {"active": true, "pc": 0, "inst": "0x300001F4"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 0},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 3,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x0000A000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 500},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 4,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x0000A000"},
+        "ID": {"active": true, "pc": 0, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 500},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 5,
+      "stages": {
+        "IF": {"active": true, "pc": 1, "inst": "0x0000A000"},
+        "ID": {"active": false, "pc": -1, "opcode": 3, "r1_val": 0, "r2_val": 0, "imm": 500},
+        "EX": {"active": true, "alu_result": 500, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 6,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 40960},
+        "EX": {"active": false, "alu_result": 500, "dest_reg": 0},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 500},
+        "WB": {"active": true, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 7,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": true, "pc": 1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 40960},
+        "EX": {"active": false, "alu_result": 500, "dest_reg": 0},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 500},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 8,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 40960},
+        "EX": {"active": true, "alu_result": 0, "dest_reg": 5},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 500},
+        "WB": {"active": false, "dest_reg": 0}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 9,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 40960},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 5},
+        "MEM": {"active": true, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": true, "dest_reg": 5}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "cycle": 10,
+      "stages": {
+        "IF": {"active": false, "pc": -1, "inst": "0x00000000"},
+        "ID": {"active": false, "pc": -1, "opcode": 0, "r1_val": 0, "r2_val": 0, "imm": 40960},
+        "EX": {"active": false, "alu_result": 0, "dest_reg": 5},
+        "MEM": {"active": false, "mem_read": 0, "alu_result": 0},
+        "WB": {"active": false, "dest_reg": 5}
+      },
+      "registers": [0, 0, 0, 0, 0, 0, 0, 0]
+    }
+    ]
+  }
+}

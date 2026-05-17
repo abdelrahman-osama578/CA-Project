@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSEN601 Architecture IDE</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #11111b; color: #cdd6f4; margin: 0; padding: 20px; box-sizing: border-box; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+        
+        /* Premium Header & Dropdown */
+        .header { flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #313244; padding-bottom: 15px; margin-bottom: 15px; }
+        .controls { display: flex; gap: 15px; align-items: center; }
+        button { background-color: #89b4fa; color: #11111b; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        button:hover { background-color: #b4befe; transform: translateY(-1px); }
+        button.active { background-color: #f38ba8; color: white; }
+        
+        /* Modern Select Box */
+        .custom-select {
+            appearance: none; background-color: #1e1e2e; border: 2px solid #45475a; color: #cdd6f4;
+            padding: 8px 35px 8px 15px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2389b4fa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 10px center; background-size: 16px;
+            transition: 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .custom-select:hover { border-color: #89b4fa; }
+        .custom-select:focus { outline: none; border-color: #a6e3a1; box-shadow: 0 0 0 3px rgba(166, 227, 161, 0.2); }
+
+        /* IDE Layout */
+        .ide-container { display: flex; gap: 20px; flex-grow: 1; min-height: 0; }
+        
+        /* Left Pane: Program Tracker */
+        .program-tracker { flex: 0 0 300px; background-color: #1e1e2e; border-radius: 10px; border: 1px solid #313244; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+        .pane-header { flex-shrink: 0; background-color: #313244; padding: 10px 15px; font-weight: bold; color: #bac2de; text-align: center; }
+        .instruction-list { flex-grow: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 5px; font-family: monospace; font-size: 13px; }
+        .inst-line { padding: 8px; border-radius: 4px; background-color: #11111b; border-left: 3px solid #45475a; display: flex; justify-content: space-between; align-items: center; transition: 0.3s;}
+        
+        /* Instruction States */
+        .inst-line.fetch { border-left-color: #f9e2af; background-color: rgba(249, 226, 175, 0.1); }
+        .inst-line.decode { border-left-color: #89b4fa; background-color: rgba(137, 180, 250, 0.1); }
+        .inst-line.pipeline { border-left-color: #a6e3a1; color: #6c7086; }
+        .inst-badge { font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 10px; background: #313244; }
+
+        /* Right Pane: Architecture & System */
+        .right-pane { flex-grow: 1; display: flex; flex-direction: column; gap: 15px; min-width: 0; }
+        
+        /* Architecture Layout */
+        .architecture-container { flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; background-color: #1e1e2e; padding: 15px; border-radius: 10px; border: 1px solid #313244; box-shadow: 0 4px 6px rgba(0,0,0,0.2);}
+        .pipeline-stage { background-color: #313244; border: 2px solid #45475a; border-radius: 8px; width: 18%; min-height: 110px; padding: 10px; display: flex; flex-direction: column; transition: 0.3s;}
+        .pipeline-stage.active { border-color: #a6e3a1; background-color: #27303a; box-shadow: 0 0 15px rgba(166, 227, 161, 0.2); }
+        .stage-title { text-align: center; font-weight: bold; color: #89dceb; border-bottom: 1px solid #45475a; padding-bottom: 5px; margin-bottom: 10px; }
+        .tech-data { font-family: monospace; font-size: 12px; color: #a6adc8; display: flex; flex-direction: column; gap: 4px; }
+        .tech-data span.val { color: #f9e2af; font-weight: bold;}
+        .arrow { color: #585b70; font-size: 20px; font-weight: bold; }
+
+        /* Bottom Split */
+        .bottom-grid { display: flex; gap: 15px; flex-grow: 1; min-height: 0; }
+        .terminal { flex: 2; background-color: #1e1e2e; border-radius: 10px; border: 1px solid #313244; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.2);}
+        .terminal-body { padding: 15px; font-family: monospace; font-size: 13px; overflow-y: auto; flex-grow: 1; display: flex; flex-direction: column; gap: 5px; }
+        .log-entry { color: #a6adc8; }
+        .log-entry.highlight { color: #a6e3a1; }
+        .registers { flex: 1; background-color: #1e1e2e; border-radius: 10px; border: 1px solid #313244; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.2);}
+        .reg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 15px; overflow-y: auto; flex-grow: 1; align-content: start; }
+        .reg-box { background-color: #313244; padding: 8px; border-radius: 5px; display: flex; justify-content: space-between; font-family: monospace; transition: 0.3s; border-left: 3px solid #585b70; }
+        .reg-box.changed { background-color: #a6e3a1; color: #11111b; border-left-color: #11111b; font-weight: bold; transform: scale(1.02); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1 style="margin: 0; font-size: 22px;">⚙️ Datapath IDE</h1>
+        <div class="controls">
+            <select id="test-selector" class="custom-select" onchange="loadTest(this.value)">
+                <option value="">Loading tests...</option>
+            </select>
+            <h2 id="cycle-display" style="margin: 0; color: #f9e2af; width: 90px; font-size: 18px;">Cycle: 0</h2>
+            <button onclick="resetSim()">⏮ Reset</button>
+            <button onclick="stepSim()">⏭ Step</button>
+            <button id="auto-btn" onclick="toggleAutoRun()">▶ Auto-Run</button>
+            <label style="font-size: 13px;">Speed: <input type="range" id="speed-slider" min="100" max="2000" value="800" dir="rtl"></label>
+        </div>
+    </div>
+
+    <div class="ide-container">
+        <div class="program-tracker">
+            <div class="pane-header">Program Memory (Instructions)</div>
+            <div class="instruction-list" id="instruction-list">
+                </div>
+        </div>
+
+        <div class="right-pane">
+            <div class="architecture-container">
+                <div id="stage-IF" class="pipeline-stage"><div class="stage-title">FETCH (IF)</div><div class="tech-data" id="data-IF"></div></div>
+                <div class="arrow">➔</div>
+                <div id="stage-ID" class="pipeline-stage"><div class="stage-title">DECODE (ID)</div><div class="tech-data" id="data-ID"></div></div>
+                <div class="arrow">➔</div>
+                <div id="stage-EX" class="pipeline-stage"><div class="stage-title">EXECUTE (EX)</div><div class="tech-data" id="data-EX"></div></div>
+                <div class="arrow">➔</div>
+                <div id="stage-MEM" class="pipeline-stage"><div class="stage-title">MEMORY (MEM)</div><div class="tech-data" id="data-MEM"></div></div>
+                <div class="arrow">➔</div>
+                <div id="stage-WB" class="pipeline-stage"><div class="stage-title">WRITE (WB)</div><div class="tech-data" id="data-WB"></div></div>
+            </div>
+
+            <div class="bottom-grid">
+                <div class="terminal">
+                    <div class="pane-header">System Execution Log</div>
+                    <div class="terminal-body" id="terminal-body"></div>
+                </div>
+                <div class="registers">
+                    <div class="pane-header">Register File (R0-R7)</div>
+                    <div class="reg-grid" id="register-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allTestsData = {};
+        let activeSimData = [];
+        let activeProgram = [];
+        let currCycleIndex = 0;
+        let autoRunInterval = null;
+
+        async function loadData() {
+            const res = await fetch('/api/data');
+            if(res.ok) {
+                allTestsData = await res.json();
+                const selector = document.getElementById('test-selector');
+                selector.innerHTML = ''; 
+                Object.keys(allTestsData).forEach(testName => {
+                    const opt = document.createElement('option');
+                    opt.value = testName;
+                    opt.innerText = testName;
+                    selector.appendChild(opt);
+                });
+                loadTest(Object.keys(allTestsData)[0]);
+            } else {
+                alert("simulation_data.json not found!");
+            }
+        }
+
+        function loadTest(testName) {
+            toggleAutoRun(true); 
+            activeProgram = allTestsData[testName].program;
+            activeSimData = allTestsData[testName].cycles;
+            currCycleIndex = 0;
+            document.getElementById('terminal-body').innerHTML = '';
+            logToTerminal(`> Booting Test Environment: ${testName}...`, true);
+            renderCycle(0);
+        }
+
+        function logToTerminal(message, highlight=false) {
+            const term = document.getElementById('terminal-body');
+            const entry = document.createElement('div');
+            entry.className = highlight ? 'log-entry highlight' : 'log-entry';
+            entry.innerText = message;
+            term.appendChild(entry);
+            term.scrollTop = term.scrollHeight; 
+        }
+
+        function renderCycle(index) {
+            if (index >= activeSimData.length) return;
+            const cycleData = activeSimData[index];
+            const prevData = index > 0 ? activeSimData[index - 1] : { registers: [0,0,0,0,0,0,0,0] };
+
+            document.getElementById('cycle-display').innerText = `Cycle: ${cycleData.cycle}`;
+            logToTerminal(`\n--- CLK ${cycleData.cycle} ---`);
+
+            const s = cycleData.stages;
+            const ifPC = s.IF.active ? s.IF.pc : -1;
+            const idPC = s.ID.active ? s.ID.pc : -1;
+
+            // 1. Update The Active Eye (Program Tracker)
+            const instList = document.getElementById('instruction-list');
+            instList.innerHTML = '';
+            activeProgram.forEach((inst, i) => {
+                const line = document.createElement('div');
+                line.className = 'inst-line';
+                let badgeHtml = '';
+
+                if (i === ifPC) {
+                    line.classList.add('fetch');
+                    badgeHtml = '<span class="inst-badge" style="color:#f9e2af; border:1px solid #f9e2af">IF</span>';
+                } else if (i === idPC) {
+                    line.classList.add('decode');
+                    badgeHtml = '<span class="inst-badge" style="color:#89b4fa; border:1px solid #89b4fa">ID</span>';
+                } else if (i < idPC || (idPC === -1 && i < ifPC)) {
+                    // It has passed Decode and is deep in the pipeline
+                    line.classList.add('pipeline');
+                    badgeHtml = '<span class="inst-badge">EXE</span>';
+                } else {
+                    badgeHtml = '<span class="inst-badge" style="opacity:0.3">IDLE</span>';
+                }
+
+                line.innerHTML = `<span>[${i}] ${inst}</span> ${badgeHtml}`;
+                instList.appendChild(line);
+            });
+
+            // 2. Update Datapath
+            const elIF = document.getElementById('stage-IF');
+            if (s.IF.active) {
+                elIF.classList.add('active');
+                document.getElementById('data-IF').innerHTML = `PC: <span class="val">${s.IF.pc}</span><br>Inst: <span class="val">${s.IF.inst}</span>`;
+                logToTerminal(`[IF] Fetched PC ${s.IF.pc}`);
+            } else { elIF.classList.remove('active'); document.getElementById('data-IF').innerHTML = "Stalled/Empty"; }
+
+            const elID = document.getElementById('stage-ID');
+            if (s.ID.active) {
+                elID.classList.add('active');
+                document.getElementById('data-ID').innerHTML = `PC: <span class="val">${s.ID.pc}</span><br>Opcode: <span class="val">${s.ID.opcode}</span><br>R1: <span class="val">${s.ID.r1_val}</span> R2: <span class="val">${s.ID.r2_val}</span><br>Imm: <span class="val">${s.ID.imm}</span>`;
+                logToTerminal(`[ID] Decoded PC ${s.ID.pc}`);
+            } else { elID.classList.remove('active'); document.getElementById('data-ID').innerHTML = "Stalled/Empty"; }
+
+            const elEX = document.getElementById('stage-EX');
+            if (s.EX.active) {
+                elEX.classList.add('active');
+                document.getElementById('data-EX').innerHTML = `ALU Res: <span class="val">${s.EX.alu_result}</span><br>Dest Reg: <span class="val">R${s.EX.dest_reg}</span>`;
+            } else { elEX.classList.remove('active'); document.getElementById('data-EX').innerHTML = "Empty"; }
+
+            const elMEM = document.getElementById('stage-MEM');
+            if (s.MEM.active) {
+                elMEM.classList.add('active');
+                document.getElementById('data-MEM').innerHTML = `ALU Res: <span class="val">${s.MEM.alu_result}</span><br>Mem Read: <span class="val">${s.MEM.mem_read}</span>`;
+            } else { elMEM.classList.remove('active'); document.getElementById('data-MEM').innerHTML = "Empty"; }
+
+            const elWB = document.getElementById('stage-WB');
+            if (s.WB.active && s.WB.dest_reg !== 0) { 
+                elWB.classList.add('active');
+                document.getElementById('data-WB').innerHTML = `Dest: <span class="val">R${s.WB.dest_reg}</span><br>Action: <span class="val">Write</span>`;
+            } else { elWB.classList.remove('active'); document.getElementById('data-WB').innerHTML = "No Write"; }
+
+            // 3. Update Registers
+            const regContainer = document.getElementById('register-container');
+            regContainer.innerHTML = ''; 
+            cycleData.registers.forEach((val, i) => {
+                const regDiv = document.createElement('div');
+                regDiv.className = 'reg-box';
+                regDiv.innerHTML = `<span>R${i}</span> <span style="color:#f9e2af">${val}</span>`;
+                if (val !== prevData.registers[i]) {
+                    regDiv.classList.add('changed');
+                    logToTerminal(`[WB] Register R${i} updated to ${val}`, true);
+                    setTimeout(() => regDiv.classList.remove('changed'), 600);
+                }
+                regContainer.appendChild(regDiv);
+            });
+        }
+
+        function stepSim() {
+            if (currCycleIndex < activeSimData.length - 1) {
+                currCycleIndex++;
+                renderCycle(currCycleIndex);
+            } else {
+                logToTerminal(">> EOF HALT <<", true);
+                toggleAutoRun(true); 
+            }
+        }
+
+        function resetSim() {
+            currCycleIndex = 0;
+            document.getElementById('terminal-body').innerHTML = '<div class="log-entry">> Simulation Reset.</div>';
+            renderCycle(0);
+        }
+
+        function toggleAutoRun(forceStop = false) {
+            const btn = document.getElementById('auto-btn');
+            if (autoRunInterval || forceStop) {
+                clearInterval(autoRunInterval);
+                autoRunInterval = null;
+                btn.innerText = "▶ Auto-Run";
+                btn.classList.remove('active');
+            } else {
+                btn.innerText = "⏸ Pause";
+                btn.classList.add('active');
+                const speed = document.getElementById('speed-slider').value;
+                autoRunInterval = setInterval(stepSim, speed);
+            }
+        }
+
+        window.onload = loadData;
+    </script>
+</body>
+</html>
