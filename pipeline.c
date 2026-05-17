@@ -58,14 +58,21 @@ void memory() {
     mem_wb.alu_result = ex_mem.alu_result;
 
     if (ex_mem.opcode == OPCODE_LW) {
-        mem_wb.mem_read_val = cpu.memory[ex_mem.alu_result]; 
-        printf("Output: Read %d from Mem[%d]\n", mem_wb.mem_read_val, ex_mem.alu_result);
+        if (ex_mem.alu_result >= 1024 && ex_mem.alu_result < 2048) {
+            mem_wb.mem_read_val = cpu.memory[ex_mem.alu_result]; 
+            printf("Output: Read %d from Mem[%d]\n", mem_wb.mem_read_val, ex_mem.alu_result);
+        } else {
+            printf("Output: SEG FAULT - Cannot read from address %d\n", ex_mem.alu_result);
+            mem_wb.mem_read_val = 0;
+        }
     } 
     else if (ex_mem.opcode == OPCODE_SW) {
-        cpu.memory[ex_mem.alu_result] = ex_mem.r1_val;
-        printf("Output: (Changed) Memory location Mem[%d] changed to %d in Memory stage\n", ex_mem.alu_result, ex_mem.r1_val);
-    } else {
-        printf("Output: Passed ALU result %d forward\n", ex_mem.alu_result);
+        if (ex_mem.alu_result >= 1024 && ex_mem.alu_result < 2048) {
+            cpu.memory[ex_mem.alu_result] = ex_mem.r1_val;
+            printf("Output: (Changed) Mem[%d] changed to %d\n", ex_mem.alu_result, ex_mem.r1_val);
+        } else {
+            printf("Output: SEG FAULT - Cannot write to address %d\n", ex_mem.alu_result);
+        }
     }
 
     // --- NEW: SET THE GLOBAL FLAG IF MEMORY OR BRANCH IS ACTIVE ---
@@ -238,8 +245,9 @@ void fetch() {
         return;
     }
 
+    extern int num_parsed_instructions;
     // 3. Normal Fetch Execution
-    if (!if_id.is_valid && cpu.pc < INSTRUCTION_LIMIT && cpu.memory[cpu.pc] != 0) {
+    if (!if_id.is_valid && cpu.pc < INSTRUCTION_LIMIT && cpu.pc < num_parsed_instructions) {
         if_id.is_valid = true;
         if_id.instruction = cpu.memory[cpu.pc];
         if_id.pc = cpu.pc;
