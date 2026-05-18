@@ -92,10 +92,13 @@ void load_program(const char *filename) {
             instruction = (OPCODE_J << 28) | (address & 0xFFFFFFF);
         }
 
+        
         // Store the instruction in memory
         cpu.memory[inst_index] = instruction;
         inst_index++;
     }
 
+    extern int num_parsed_instructions;
+    num_parsed_instructions = inst_index;
     fclose(file);
 }

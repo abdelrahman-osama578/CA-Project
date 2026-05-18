@@ -57,7 +57,9 @@
         .terminal { flex: 2; background-color: #1e1e2e; border-radius: 10px; border: 1px solid #313244; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.2);}
         .terminal-body { padding: 15px; font-family: monospace; font-size: 13px; overflow-y: auto; flex-grow: 1; display: flex; flex-direction: column; gap: 5px; }
         .log-entry { color: #a6adc8; }
-        .log-entry.highlight { color: #a6e3a1; }
+        .log-entry.highlight { color: #a6e3a1; font-weight: bold; }
+        .log-entry.dim { color: #585b70; font-style: italic; } /* NEW: For Idle Messages */
+        
         .registers { flex: 1; background-color: #1e1e2e; border-radius: 10px; border: 1px solid #313244; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.2);}
         .reg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 15px; overflow-y: auto; flex-grow: 1; align-content: start; }
         .reg-box { background-color: #313244; padding: 8px; border-radius: 5px; display: flex; justify-content: space-between; font-family: monospace; transition: 0.3s; border-left: 3px solid #585b70; }
@@ -144,14 +146,17 @@
             activeSimData = allTestsData[testName].cycles;
             currCycleIndex = 0;
             document.getElementById('terminal-body').innerHTML = '';
-            logToTerminal(`> Booting Test Environment: ${testName}...`, true);
+            logToTerminal(`> Booting Test Environment: ${testName}...`, 'highlight');
             renderCycle(0);
         }
 
-        function logToTerminal(message, highlight=false) {
+        // UPGRADED LOGGING FUNCTION
+        function logToTerminal(message, type = 'normal') {
             const term = document.getElementById('terminal-body');
             const entry = document.createElement('div');
-            entry.className = highlight ? 'log-entry highlight' : 'log-entry';
+            entry.className = 'log-entry';
+            if (type === 'highlight') entry.classList.add('highlight');
+            if (type === 'dim') entry.classList.add('dim');
             entry.innerText = message;
             term.appendChild(entry);
             term.scrollTop = term.scrollHeight; 
@@ -184,7 +189,6 @@
                     line.classList.add('decode');
                     badgeHtml = '<span class="inst-badge" style="color:#89b4fa; border:1px solid #89b4fa">ID</span>';
                 } else if (i < idPC || (idPC === -1 && i < ifPC)) {
-                    // It has passed Decode and is deep in the pipeline
                     line.classList.add('pipeline');
                     badgeHtml = '<span class="inst-badge">EXE</span>';
                 } else {
@@ -195,38 +199,60 @@
                 instList.appendChild(line);
             });
 
-            // 2. Update Datapath
+            // 2. Update Datapath & Terminal Logs
             const elIF = document.getElementById('stage-IF');
             if (s.IF.active) {
                 elIF.classList.add('active');
                 document.getElementById('data-IF').innerHTML = `PC: <span class="val">${s.IF.pc}</span><br>Inst: <span class="val">${s.IF.inst}</span>`;
-                logToTerminal(`[IF] Fetched PC ${s.IF.pc}`);
-            } else { elIF.classList.remove('active'); document.getElementById('data-IF').innerHTML = "Stalled/Empty"; }
+                logToTerminal(`[IF]  Fetched PC ${s.IF.pc}`);
+            } else { 
+                elIF.classList.remove('active'); 
+                document.getElementById('data-IF').innerHTML = "Stalled/Empty"; 
+                logToTerminal(`[IF]  Idle / Waiting for cycle...`, 'dim');
+            }
 
             const elID = document.getElementById('stage-ID');
             if (s.ID.active) {
                 elID.classList.add('active');
                 document.getElementById('data-ID').innerHTML = `PC: <span class="val">${s.ID.pc}</span><br>Opcode: <span class="val">${s.ID.opcode}</span><br>R1: <span class="val">${s.ID.r1_val}</span> R2: <span class="val">${s.ID.r2_val}</span><br>Imm: <span class="val">${s.ID.imm}</span>`;
-                logToTerminal(`[ID] Decoded PC ${s.ID.pc}`);
-            } else { elID.classList.remove('active'); document.getElementById('data-ID').innerHTML = "Stalled/Empty"; }
+                logToTerminal(`[ID]  Decoded Opcode ${s.ID.opcode} (PC ${s.ID.pc})`);
+            } else { 
+                elID.classList.remove('active'); 
+                document.getElementById('data-ID').innerHTML = "Stalled/Empty"; 
+                logToTerminal(`[ID]  Idle / Stalled`, 'dim');
+            }
 
             const elEX = document.getElementById('stage-EX');
             if (s.EX.active) {
                 elEX.classList.add('active');
                 document.getElementById('data-EX').innerHTML = `ALU Res: <span class="val">${s.EX.alu_result}</span><br>Dest Reg: <span class="val">R${s.EX.dest_reg}</span>`;
-            } else { elEX.classList.remove('active'); document.getElementById('data-EX').innerHTML = "Empty"; }
+                logToTerminal(`[EX]  ALU computed result: ${s.EX.alu_result}`);
+            } else { 
+                elEX.classList.remove('active'); 
+                document.getElementById('data-EX').innerHTML = "Empty"; 
+                logToTerminal(`[EX]  Idle / Computing`, 'dim');
+            }
 
             const elMEM = document.getElementById('stage-MEM');
             if (s.MEM.active) {
                 elMEM.classList.add('active');
                 document.getElementById('data-MEM').innerHTML = `ALU Res: <span class="val">${s.MEM.alu_result}</span><br>Mem Read: <span class="val">${s.MEM.mem_read}</span>`;
-            } else { elMEM.classList.remove('active'); document.getElementById('data-MEM').innerHTML = "Empty"; }
+                logToTerminal(`[MEM] Processed Memory (Read Val: ${s.MEM.mem_read})`);
+            } else { 
+                elMEM.classList.remove('active'); 
+                document.getElementById('data-MEM').innerHTML = "Empty"; 
+                logToTerminal(`[MEM] Idle / Passed Through`, 'dim');
+            }
 
             const elWB = document.getElementById('stage-WB');
             if (s.WB.active && s.WB.dest_reg !== 0) { 
                 elWB.classList.add('active');
                 document.getElementById('data-WB').innerHTML = `Dest: <span class="val">R${s.WB.dest_reg}</span><br>Action: <span class="val">Write</span>`;
-            } else { elWB.classList.remove('active'); document.getElementById('data-WB').innerHTML = "No Write"; }
+            } else { 
+                elWB.classList.remove('active'); 
+                document.getElementById('data-WB').innerHTML = "No Write"; 
+                logToTerminal(`[WB]  Idle / No Writeback`, 'dim');
+            }
 
             // 3. Update Registers
             const regContainer = document.getElementById('register-container');
@@ -237,7 +263,7 @@
                 regDiv.innerHTML = `<span>R${i}</span> <span style="color:#f9e2af">${val}</span>`;
                 if (val !== prevData.registers[i]) {
                     regDiv.classList.add('changed');
-                    logToTerminal(`[WB] Register R${i} updated to ${val}`, true);
+                    logToTerminal(`[WB]  Data Hazard Resolved: R${i} updated to ${val}`, 'highlight');
                     setTimeout(() => regDiv.classList.remove('changed'), 600);
                 }
                 regContainer.appendChild(regDiv);
@@ -249,14 +275,15 @@
                 currCycleIndex++;
                 renderCycle(currCycleIndex);
             } else {
-                logToTerminal(">> EOF HALT <<", true);
+                logToTerminal(">> EOF HALT <<", 'highlight');
                 toggleAutoRun(true); 
             }
         }
 
         function resetSim() {
             currCycleIndex = 0;
-            document.getElementById('terminal-body').innerHTML = '<div class="log-entry">> Simulation Reset.</div>';
+            document.getElementById('terminal-body').innerHTML = '';
+            logToTerminal('> Simulation Reset.', 'highlight');
             renderCycle(0);
         }
 

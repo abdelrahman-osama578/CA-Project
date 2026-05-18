@@ -12,6 +12,7 @@ EX_MEM_Latch ex_mem;
 MEM_WB_Latch mem_wb;
 // GLOBAL FLAG to prevent IF and MEM from running in the same cycle
 bool mem_active_this_cycle = false;
+int num_parsed_instructions = 0;
 
 void initialize_cpu() {
     memset(&cpu, 0, sizeof(CPU));

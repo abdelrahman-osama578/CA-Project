@@ -106,8 +106,18 @@ void load_program_from_string(const char *code)
 }
 
 // ---------------------------------------------------------
-// 3. JSON CYCLE LOGGER
+// 3. JSON CYCLE LOGGER (STRICT LATCH MAPPING)
 // ---------------------------------------------------------
+// ---------------------------------------------------------
+// 3. JSON CYCLE LOGGER (DIRECT TRACKING)
+// ---------------------------------------------------------
+// Import the GUI Trackers from pipeline.c
+extern bool gui_if_active; extern uint32_t gui_if_pc; extern uint32_t gui_if_inst;
+extern bool gui_id_active; extern uint32_t gui_id_pc;
+extern bool gui_ex_active; 
+extern bool gui_mem_active; 
+extern bool gui_wb_active; 
+
 void log_cycle_json() {
     if (!first_cycle_logged) {
         first_cycle_logged = true;
@@ -117,19 +127,23 @@ void log_cycle_json() {
 
     fprintf(json_log, "    {\n");
     fprintf(json_log, "      \"cycle\": %d,\n", cpu.clock_cycle);
-    
-    // Log Pipeline Stages (Now includes PC tracking for IF and ID)
     fprintf(json_log, "      \"stages\": {\n");
+    
     fprintf(json_log, "        \"IF\": {\"active\": %s, \"pc\": %d, \"inst\": \"0x%08X\"},\n", 
-            if_id.is_valid ? "true" : "false", if_id.is_valid ? if_id.pc : -1, if_id.is_valid ? if_id.instruction : 0);
+            gui_if_active ? "true" : "false", gui_if_pc, gui_if_inst);
+    
     fprintf(json_log, "        \"ID\": {\"active\": %s, \"pc\": %d, \"opcode\": %d, \"r1_val\": %d, \"r2_val\": %d, \"imm\": %d},\n",
-            id_ex.is_valid ? "true" : "false", id_ex.is_valid ? id_ex.pc : -1, id_ex.opcode, id_ex.r1_val, id_ex.r2_val, id_ex.immediate);
+            gui_id_active ? "true" : "false", gui_id_pc, id_ex.opcode, id_ex.r1_val, id_ex.r2_val, id_ex.immediate);
+    
     fprintf(json_log, "        \"EX\": {\"active\": %s, \"alu_result\": %d, \"dest_reg\": %d},\n",
-            ex_mem.is_valid ? "true" : "false", ex_mem.alu_result, ex_mem.dest_reg);
+            gui_ex_active ? "true" : "false", ex_mem.alu_result, ex_mem.dest_reg);
+    
     fprintf(json_log, "        \"MEM\": {\"active\": %s, \"mem_read\": %d, \"alu_result\": %d},\n",
-            mem_wb.is_valid ? "true" : "false", mem_wb.mem_read_val, mem_wb.alu_result);
+            gui_mem_active ? "true" : "false", mem_wb.mem_read_val, mem_wb.alu_result);
+    
     fprintf(json_log, "        \"WB\": {\"active\": %s, \"dest_reg\": %d}\n",
-            mem_wb.is_valid ? "true" : "false", mem_wb.dest_reg);
+            gui_wb_active ? "true" : "false", mem_wb.dest_reg);
+            
     fprintf(json_log, "      },\n");
 
     fprintf(json_log, "      \"registers\": [%d, %d, %d, %d, %d, %d, %d, %d]\n",
