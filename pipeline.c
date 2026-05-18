@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdbool.h>
 #include "cpu.h"
@@ -49,6 +50,11 @@ void memory() {
         return;
     }
 
+    // Unconditional Structural Hazard Rule: If ANY instruction is in MEM, stall IF.
+    // This allows branches to "ghost" through Memory to enforce the required fetch delay.
+    extern bool mem_active_this_cycle;
+    mem_active_this_cycle = true;
+
     printf("Input: Opcode %d, Dest R%d, ALU_Res: %d, R1_val: %d | ", 
            ex_mem.opcode, ex_mem.dest_reg, ex_mem.alu_result, ex_mem.r1_val);
 
@@ -58,21 +64,23 @@ void memory() {
     mem_wb.alu_result = ex_mem.alu_result;
 
     if (ex_mem.opcode == OPCODE_LW) {
-        mem_wb.mem_read_val = cpu.memory[ex_mem.alu_result]; 
-        printf("Output: Read %d from Mem[%d]\n", mem_wb.mem_read_val, ex_mem.alu_result);
+        if (ex_mem.alu_result >= 1024 && ex_mem.alu_result < 2048) {
+            mem_wb.mem_read_val = cpu.memory[ex_mem.alu_result]; 
+            printf("Output: Read %d from Mem[%d]\n", mem_wb.mem_read_val, ex_mem.alu_result);
+        } else {
+            printf("Output: SEG FAULT - Cannot read from address %d\n", ex_mem.alu_result);
+            mem_wb.mem_read_val = 0;
+        }
     } 
     else if (ex_mem.opcode == OPCODE_SW) {
-        cpu.memory[ex_mem.alu_result] = ex_mem.r1_val;
-        printf("Output: (Changed) Memory location Mem[%d] changed to %d in Memory stage\n", ex_mem.alu_result, ex_mem.r1_val);
+        if (ex_mem.alu_result >= 1024 && ex_mem.alu_result < 2048) {
+            cpu.memory[ex_mem.alu_result] = ex_mem.r1_val;
+            printf("Output: (Changed) Memory location Mem[%d] changed to %d in Memory stage\n", ex_mem.alu_result, ex_mem.r1_val);
+        } else {
+            printf("Output: SEG FAULT - Cannot write to address %d\n", ex_mem.alu_result);
+        }
     } else {
-        printf("Output: Passed ALU result %d forward\n", ex_mem.alu_result);
-    }
-
-    // --- NEW: SET THE GLOBAL FLAG IF MEMORY OR BRANCH IS ACTIVE ---
-    extern bool mem_active_this_cycle;
-    if (ex_mem.opcode == OPCODE_LW || ex_mem.opcode == OPCODE_SW || 
-        ex_mem.opcode == OPCODE_BNE || ex_mem.opcode == OPCODE_J) {
-        mem_active_this_cycle = true;
+        printf("Output: Passed Forward\n");
     }
 
     ex_mem.is_valid = false;
@@ -101,8 +109,10 @@ void execute() {
     ex_mem.is_valid = true;
     ex_mem.opcode = id_ex.opcode;
     
-    // Corrected Destination Logic (SLL/SRL use R1 as destination in Package 1)
-    if (id_ex.opcode == OPCODE_ADD || id_ex.opcode == OPCODE_SUB) {
+    // Bug Fix: Prevent Branches and Stores from falsely triggering forwarding logic
+    if (id_ex.opcode == OPCODE_SW || id_ex.opcode == OPCODE_BNE || id_ex.opcode == OPCODE_J) {
+        ex_mem.dest_reg = 0;
+    } else if (id_ex.opcode == OPCODE_ADD || id_ex.opcode == OPCODE_SUB) {
         ex_mem.dest_reg = id_ex.r3_addr;
     } else {
         ex_mem.dest_reg = id_ex.r1_addr;
@@ -127,6 +137,8 @@ void execute() {
                 flush_pipeline();
                 printf("Output: Branch Taken! Flushed pipeline, new PC: %d\n", cpu.pc);
                 id_ex.is_valid = false;
+                // Note: We explicitly DO NOT kill ex_mem here. It must continue into Memory
+                // to trigger the structural hazard stall on the next cycle, as per rubric.
                 return;
             }
             break;
@@ -223,23 +235,29 @@ void decode() {
 void fetch() {
     printf("[Fetch]   ");
     
-    // 1. Check the newly implemented Structural Hazard Flag
+    static int fetch_wait = 0;
     extern bool mem_active_this_cycle;
+    extern int num_parsed_instructions;
+
+    // Bug Fix: Check rhythm wait state BEFORE Structural Hazard so rhythm doesn't drift
+    if (fetch_wait == 1) {
+        fetch_wait = 0; // Reset for the next cycle
+        if (mem_active_this_cycle) {
+            printf("Stalled (Memory structural hazard overlaps with Idle cycle)\n");
+        } else {
+            printf("Idle (Enforcing 2-cycle rhythm)\n");
+        }
+        return;
+    }
+
+    // Von Neumann Structural Hazard Enforcer
     if (mem_active_this_cycle) {
         printf("Stalled (Memory structural hazard block)\n");
         return; 
     }
 
-    // 2. Enforce the 2-cycle rhythm dynamically (Survives branches/flushes)
-    static int fetch_wait = 0;
-    if (fetch_wait == 1) {
-        fetch_wait = 0; // Reset for the next cycle
-        printf("Idle (Enforcing 2-cycle rhythm)\n");
-        return;
-    }
-
-    // 3. Normal Fetch Execution
-    if (!if_id.is_valid && cpu.pc < INSTRUCTION_LIMIT && cpu.memory[cpu.pc] != 0) {
+    // Normal Fetch Execution
+    if (!if_id.is_valid && cpu.pc < INSTRUCTION_LIMIT && cpu.pc < num_parsed_instructions) {
         if_id.is_valid = true;
         if_id.instruction = cpu.memory[cpu.pc];
         if_id.pc = cpu.pc;

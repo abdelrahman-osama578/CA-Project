@@ -1,3 +1,5 @@
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,8 +12,10 @@ IF_ID_Latch if_id;
 ID_EX_Latch id_ex;
 EX_MEM_Latch ex_mem;
 MEM_WB_Latch mem_wb;
-// GLOBAL FLAG to prevent IF and MEM from running in the same cycle
+
+// Global flags and trackers
 bool mem_active_this_cycle = false;
+int num_parsed_instructions = 0; 
 
 void initialize_cpu() {
     memset(&cpu, 0, sizeof(CPU));
@@ -58,9 +62,9 @@ int main(int argc, char *argv[]) {
     printf("Program loaded successfully. Beginning simulation...\n");
 
     while (1) {
-        // Safety net: stop after 100 cycles to prevent infinite loops
-        if (cpu.clock_cycle > 100) {
-            printf("\n--- Reached 100 cycle limit (Safety Net) ---\n");
+        // Safety net: stop after 200 cycles to prevent infinite loops
+        if (cpu.clock_cycle > 200) {
+            printf("\n--- Reached 200 cycle limit (Safety Net) ---\n");
             break;
         }
 
@@ -78,8 +82,8 @@ int main(int argc, char *argv[]) {
         decode();
         fetch();
 
-        // Stop condition: all latches empty and no valid instruction at PC
-        if (!if_id.is_valid && !id_ex.is_valid && !ex_mem.is_valid && !mem_wb.is_valid && cpu.memory[cpu.pc] == 0) {
+        // Stop condition: all latches empty and PC has exceeded loaded instructions
+        if (!if_id.is_valid && !id_ex.is_valid && !ex_mem.is_valid && !mem_wb.is_valid && cpu.pc >= num_parsed_instructions) {
             break;
         }
 

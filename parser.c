@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -34,7 +35,7 @@ void load_program(const char *filename) {
 
         // Parse the operands based on the instruction format
         if (strcmp(opcode_str, "ADD") == 0 || strcmp(opcode_str, "SUB") == 0) {
-            sscanf(line, "%*s R%d R%d R%d", &r1, &r2, &r3);
+            sscanf(line, "%*s R%d R%d R%d", &r1, &r2, &r3); 
         } 
         else if (strcmp(opcode_str, "ADDI") == 0 || strcmp(opcode_str, "MULI") == 0 ||
                  strcmp(opcode_str, "ANDI") == 0 || strcmp(opcode_str, "XORI") == 0 ||
@@ -89,10 +90,12 @@ void load_program(const char *filename) {
             instruction = (OPCODE_J << 28) | (address & 0xFFFFFFF);
         }
 
-        // Store the instruction in memory
         cpu.memory[inst_index] = instruction;
         inst_index++;
     }
+
+    extern int num_parsed_instructions;
+    num_parsed_instructions = inst_index;
 
     fclose(file);
 }
